@@ -1,0 +1,20 @@
+Feature Request: Pressing enter triggers a search
+February 16 2018
+
+OBJECTIVE
+To give users the flexibility to use keyboard to trigger a search in the jamming application, when user press the traditional Enter key.
+
+BACKGROUND 
+Keyboard enter search enabling will really help the user to do a quick search immediately after entering the search criteria in the keyboard itself. If we provide only the search button user should explicitly use the mouse and this is time consuming.  Keyboard search provide better usability to the user.
+
+TECHNICAL DESIGN
+We will create a function called handleKeyPress in the SearchBar component and if the key is Enter, we will call the search function, which is already in the component.
+handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+                 this.search();
+            }
+  }
+
+CAVEATS
+We can provide the dynamic search behavior without waiting for an Enter key stroke. The advantage of the feature is user will be able to see the result after each text character change in the input box. It gives very much lively feel to the end user. Even though the previously stated advantage is there, we have a performance related drawback also for this solution and which is, if the number of tracks are more in the data source, the search can eventually become slow and there will be so many network calls in the system.
+
